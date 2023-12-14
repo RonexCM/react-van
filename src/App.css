@@ -257,5 +257,22 @@ footer p{
   color: white;
 }
 
+/* Host */
 
+.host-nav{
+  display: flex;
+}
+
+.host-nav a{
+  text-decoration: none;
+  padding: 5px 20px;
+  font-weight: 500;
+  color: #4D4D4D;
+}
+
+.host-nav a:hover{
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 600;
+}
 
