@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link,Outlet,NavLink } from 'react-router-dom'
+import { Outlet,NavLink } from 'react-router-dom'
 
 const HostLayout = () => {
 
@@ -7,6 +7,7 @@ const HostLayout = () => {
     color:'#161616',
     fontWeight: "bold",
     textDecoration: "underline",
+    width: "100px"
   }
 
   return (
@@ -15,16 +16,16 @@ const HostLayout = () => {
             <NavLink 
             style={({isActive}) => isActive ? activeStyles : null }
             end
-            to='/host'>Dashboard</NavLink>
+            to='.'>Dashboard</NavLink>
             <NavLink 
             style={({isActive}) => isActive ? activeStyles : null }
-            to='/host/income'>Income</NavLink>
+            to='income'>Income</NavLink>
             <NavLink 
             style={({isActive}) => isActive ? activeStyles : null }
-            to='/host/vans'>Host</NavLink>
+            to='vans'>Host</NavLink>
             <NavLink 
             style={({isActive}) => isActive ? activeStyles : null }
-            to='/host/reviews'>Reviews</NavLink>
+            to='reviews'>Reviews</NavLink>
         </nav>
         <Outlet />
     </div>
