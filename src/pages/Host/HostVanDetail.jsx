@@ -43,7 +43,7 @@ const HostVanDetail = () => {
                         <h4>${currentVan.price}/day</h4>
                     </div>
                 </div>
-                <nav>
+                <nav className="host-detail-nav">
                   <NavLink 
                   to="."
                   end
@@ -60,7 +60,7 @@ const HostVanDetail = () => {
                   style={({ isActive }) => isActive ? activeStyles : null}
                   >Photos</NavLink>
                 </nav>
-                <Outlet />
+                <Outlet  context={{currentVan}}/>
             </div>
         </section>
   )
