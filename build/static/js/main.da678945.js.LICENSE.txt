@@ -39,7 +39,7 @@
  */
 
 /**
- * @remix-run/router v1.13.0
+ * @remix-run/router v1.13.1
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -50,7 +50,20 @@
  */
 
 /**
- * React Router DOM v6.20.0
+ * Minimal Event interface implementation
+ *
+ * Original implementation by Sven Fuchs: https://gist.github.com/995028
+ * Modifications and tests by Christian Johansen.
+ *
+ * @author Sven Fuchs (svenfuchs@artweb-design.de)
+ * @author Christian Johansen (christian@cjohansen.no)
+ * @license BSD
+ *
+ * Copyright (c) 2011 Sven Fuchs, Christian Johansen
+ */
+
+/**
+ * React Router DOM v6.20.1
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -61,7 +74,7 @@
  */
 
 /**
- * React Router v6.20.0
+ * React Router v6.20.1
  *
  * Copyright (c) Remix Software Inc.
  *

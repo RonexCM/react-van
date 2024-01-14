@@ -1,8 +1,8 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-header{
+header {
   height: 110px;
   align-items: center;
   display: flex;
@@ -16,27 +16,26 @@ a.active-link {
   color: #161616;
 }
 
-header a{
+header a {
   text-decoration: none;
   font-weight: 600;
-  color: #4D4D4D;
-  padding:  5px 20px;
+  color: #4d4d4d;
+  padding: 5px 20px;
 }
 
-header .logo{
+header .logo {
   color: black;
   font-family: 1000;
   font-size: 25px;
 }
 
-header a:hover{
+header a:hover {
   color: #161616;
   text-decoration: underline;
 }
 
-
 /* Home page */
-.home-container{
+.home-container {
   background-image: url("./Image/mountain.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,21 +43,21 @@ header a:hover{
   width: 100%;
 }
 
-.home-container h1{
+.home-container h1 {
   padding: 180px 0 0 0;
   display: flex;
   justify-content: center;
   color: #1e85d2f7;
 }
 
-.home-container p{
+.home-container p {
   line-height: 24px;
   display: flex;
   justify-content: center;
   color: #1e85d2;
 }
 
-.home-container a{
+.home-container a {
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -66,7 +65,7 @@ header a:hover{
   border: none;
   width: 55%;
   margin-top: 27px;
-  padding-block: .75rem;
+  padding-block: 0.75rem;
   margin-left: 300px;
   color: white;
   font-weight: 700;
@@ -76,20 +75,20 @@ header a:hover{
 
 /* about-page */
 
-.about-content{
+.about-content {
   padding-inline: 23px;
   color: #161616;
   margin-bottom: 55px;
 }
-.about-content h1{
+.about-content h1 {
   line-height: 38px;
 }
 
-.about-content p{
+.about-content p {
   line-height: 22px;
 }
 
-.about-cta{
+.about-cta {
   background-color: #ffcc8d;
   color: black;
   padding-inline: 32px;
@@ -98,12 +97,12 @@ header a:hover{
   margin-inline: 35px;
 }
 
-.about-cta h2{
+.about-cta h2 {
   margin: 0;
   padding-block: 37px;
 }
 
-.about-cta .link-button{
+.about-cta .link-button {
   background-color: black;
   border-radius: 10px;
   color: white;
@@ -113,11 +112,11 @@ header a:hover{
 }
 
 /* Vans page */
-.van-list-container{
+.van-list-container {
   padding-inline: 23px;
 }
 
-.van-list{
+.van-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -125,75 +124,80 @@ header a:hover{
   margin-top: 57px;
 }
 
-.van-title a{
+.van-title a {
   max-width: 100%;
   text-decoration: none;
 }
 
-.van-title img{
+.van-title img {
   max-width: 100%;
   border-radius: 5px;
 }
 
-.van-list-container button{
+.van-list-container button {
   margin-right: 20px;
   cursor: pointer;
 }
 
-.van-type{
+.van-type {
+  height: 34px;
+  padding: 6px 26px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffead0;
+  color: #4d4d4d;
+  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.van-type:hover {
+  color: #ffead0;
+}
+
+.van-type.selected {
+  color: #ffead0;
+}
+
+.van-type.simple:hover,
+.van-type.simple.selected {
+  background-color: #e17654;
+}
+.van-type.rugged:hover,
+.van-type.rugged.selected {
+  background-color: #115e59;
+}
+.van-type.luxury:hover,
+.van-type.luxury.selected {
+  background-color: #161616;
+}
+
+i[class*="van-type-"] {
+  padding: 7px 14px;
+}
+
+.van-info h3,
+p {
+  color: black;
+}
+
+.van-type.clear-filters {
+  margin-left: -20px;
   height: 34px;
   padding: 6px 26px;
   font-style: normal;
   font-weight: 500;
   border: none;
   border-radius: 5px;
-  background-color: #ffead0;
-  color: #4D4D4D;
-  transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.van-type:hover{
-  color: #ffead0;
-}
-
-.van-type.selected{
-  color: #ffead0;
-}
-
-.van-type.simple:hover, .van-type.simple.selected{
-  background-color: #e17654;
-}
-.van-type.rugged:hover, .van-type.rugged.selected{
-  background-color: #115e59;
-}
-.van-type.luxury:hover, .van-type.luxury.selected{
-  background-color: #161616;
-}
-
-i[class*='van-type-']{
-  padding: 7px 14px;
-}
-
-.van-info h3,p{
-  color: black;
-}
-
-.van-type.clear-filters{
-  margin-left: -20px;
-  height: 34px;
-  padding: 6px 26px;
-    font-style: normal;
-    font-weight: 500;
-    border: none;
-    border-radius: 5px;
-    text-decoration: underline;
-    background-color: transparent;
-    color: #4D4D4D;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #4d4d4d;
 }
 
 /* Van-details */
 
-.van-detail-container{
+.van-detail-container {
   padding: 27px;
 }
 
@@ -203,7 +207,6 @@ i[class*='van-type-']{
 }
 
 .van-detail-container .back-button:visited {
-  
 }
 
 .van-detail-container .back-button span {
@@ -241,14 +244,14 @@ i[class*='van-type-']{
 }
 
 .van-detail .link-button {
-  background-color: #FF8C38;
+  background-color: #ff8c38;
   color: white;
   font-size: 20px;
   padding: 10px;
 }
 
 /* Footer */
-footer{
+footer {
   text-align: center;
   color: white;
   margin-top: 30px;
@@ -257,7 +260,7 @@ footer{
   height: 100px;
 }
 
-footer p{
+footer p {
   font-size: 20px;
   padding-top: 35px;
   color: white;
@@ -265,42 +268,42 @@ footer p{
 
 /* Host */
 
-.host-nav{
+.host-nav {
   display: block;
 }
 
-.host-nav nav{
+.host-nav nav {
   margin-bottom: 50px;
 }
 
-.host-nav a{
+.host-nav a {
   text-decoration: none;
   padding: 5px 20px;
   font-weight: 500;
-  color: #4D4D4D;
+  color: #4d4d4d;
 }
 
-.host-nav a:hover{
+.host-nav a:hover {
   color: #161616;
   text-decoration: underline;
   font-weight: 600;
 }
 
 /* host van details */
-.host-van-link-wrapper{
+.host-van-link-wrapper {
   color: unset;
   text-decoration: unset;
 }
 
-.host-vans-list{
+.host-vans-list {
   padding-inline: 26px;
 }
 
-.host-vans-title{
+.host-vans-title {
   padding-inline: 26px;
 }
 
-.host-van-single{
+.host-van-single {
   display: flex;
   align-items: center;
   background-color: white;
@@ -309,7 +312,7 @@ footer p{
   padding-left: 24px;
 }
 
-.host-van-single > img{
+.host-van-single > img {
   height: 70px;
   font-weight: 600;
   margin-block: 10px;
@@ -326,13 +329,13 @@ host-van-info h3 {
   margin-block: 10px;
 }
 
-.listedVans h1{
+.listedVans h1 {
   margin-top: 40px;
 }
 
 /* host van details */
 
-.host-van-detail-layout-container{
+.host-van-detail-layout-container {
   background-color: white;
   padding: 24px;
   margin: 30px 26px;
@@ -361,12 +364,12 @@ host-van-info h3 {
   margin-block: 0;
 }
 
-.back-button{
+.back-button {
   font-size: 20px;
   font-weight: 700;
 }
 
-.host-detail-nav{
+.host-detail-nav {
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -388,10 +391,17 @@ host-van-info h3 {
 
 .host-van-price > span {
   font-size: 16px;
-  color: #4D4D4D;
+  color: #4d4d4d;
 }
 
 .host-van-detail-image {
   height: 100px;
   border-radius: 5px;
+}
+
+.van-list-filter-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  font-size: 40px;
 }
