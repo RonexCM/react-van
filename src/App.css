@@ -405,3 +405,15 @@ host-van-info h3 {
   gap: 50px;
   font-size: 40px;
 }
+
+/* notfound */
+.not-found-container {
+  padding-inline: 26px;
+}
+
+.not-found-container .link-button {
+  padding: 20px 330px;
+  text-decoration: none;
+  background-color: #161616;
+  color: white;
+}

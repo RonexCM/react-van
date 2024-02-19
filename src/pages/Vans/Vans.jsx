@@ -1,44 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "../../server.js";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../Api.jsx";
+
+export function loader() {
+  return getVans();
+}
 
 const Vans = () => {
-  const [search, setSearch] = useSearchParams();
-  const [vans, setVans] = useState([]);
-  const typeFilter = search.get("type");
-
-  useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("🚀 ~ useEffect ~ data:", data);
-        return setVans(data.vans);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []); // Removed 'data' from the dependency array
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(null);
+  const typeFilter = searchParams.get("type");
+  const vans = useLoaderData();
 
   const filteredData = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
     : vans;
 
-  const vanElements = filteredData.map((van) => (
-    <div key={van.id} className="van-title">
-      <Link to={van.id}>
-        <img src={van.imageUrl} alt="vans-picture" />
-        <div className="van-info">
-          <h3>{van.name}</h3>
-          <p>
-            ${van.price}
-            <span>/day</span>
-          </p>
-          <i className={`van-type ${van.type} selected`}>{van.type}</i>
-        </div>
-      </Link>
-    </div>
-  ));
+  const vanElements = filteredData ? (
+    filteredData.map((van) => (
+      <div key={van.id} className="van-title">
+        <Link
+          to={van.id}
+          state={{ search: `?${searchParams.toString()}`, type: typeFilter }}
+        >
+          <img src={van.imageUrl} alt="vans-picture" />
+          <div className="van-info">
+            <h3>{van.name}</h3>
+            <p>
+              ${van.price}
+              <span>/day</span>
+            </p>
+            <i className={`van-type ${van.type} selected`}>{van.type}</i>
+          </div>
+        </Link>
+      </div>
+    ))
+  ) : (
+    <h1>No vans found</h1>
+  );
 
   function handleFilterChange(key, value) {
-    setSearch((prevParams) => {
+    setSearchParams((prevParams) => {
       if (value === null) {
         prevParams.delete(key);
       } else {
@@ -46,6 +49,10 @@ const Vans = () => {
       }
       return prevParams;
     });
+  }
+
+  if (error) {
+    return <h1>Failed to load Vans</h1>;
   }
 
   return (
@@ -80,7 +87,7 @@ const Vans = () => {
         {typeFilter ? (
           <button
             className="van-type clear-filters"
-            onClick={() => setSearch({})}
+            onClick={() => setSearchParams({})}
           >
             Clear filters
           </button>
