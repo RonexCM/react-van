@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "../../server.js";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import { getVans } from "../../Api.jsx";
+
+export function loader() {
+  return getVans();
+}
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [vans, setVans] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
   const typeFilter = searchParams.get("type");
-  useEffect(() => {
-    const loadVans = async () => {
-      setLoading(true);
-      try {
-        const data = await getVans();
-        setVans(data);
-      } catch (error) {
-        setError("Failed to fetch vans");
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadVans();
-  }, []); // Removed 'data' from the dependency array
+  const vans = useLoaderData();
 
   const filteredData = typeFilter
     ? vans.filter((van) => van.type.toLowerCase() === typeFilter)
@@ -60,10 +49,6 @@ const Vans = () => {
       }
       return prevParams;
     });
-  }
-
-  if (loading) {
-    return <h1>Loading...</h1>;
   }
 
   if (error) {
