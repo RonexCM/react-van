@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState } from "react";
 import "../../server.js";
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";

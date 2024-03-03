@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../Api";
 
+export function loader() {
+  return getHostVans();
+}
 const HostVan = () => {
-  const [vans, setVans] = useState([]);
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  });
+  const vans = useLoaderData();
 
   const hostEls = vans.map((van) => (
     <Link to={van.id} key={van.id} className="host-van-link-wrapper">
@@ -24,7 +24,7 @@ const HostVan = () => {
     <div className="listedVans">
       <h1 className="host-van-title">Your Listed Vans</h1>
       <div className="host-vans-list">
-        {vans.length > 0 ? <section>{hostEls}</section> : <h2>Loading...</h2>}
+        <section>{hostEls}</section>
       </div>
     </div>
   );

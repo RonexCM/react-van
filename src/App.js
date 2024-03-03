@@ -9,14 +9,16 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
-import VanDetail from "./pages/Vans/VanDetail";
+import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Host/Dashboard.jsx";
 import Income from "./pages/Host/Income.jsx";
 import Reviews from "./pages/Host/Reviews.jsx";
 import HostLayout from "./components/HostLayout.jsx";
-import HostVan from "./pages/Host/HostVan.jsx";
-import HostVanDetail from "./pages/Host/HostVanDetail.jsx";
+import HostVan, { loader as hostVanLoader } from "./pages/Host/HostVan.jsx";
+import HostVanDetail, {
+  loader as HostVanDetailLoader,
+} from "./pages/Host/HostVanDetail.jsx";
 import HostVanInfo from "./pages/Host/HostVanInfo.jsx";
 import HostVanPricing from "./pages/Host/HostVanPricing.jsx";
 import HostVanPhoto from "./pages/Host/HostVanPhoto.jsx";
@@ -38,7 +40,7 @@ const router = createBrowserRouter(
           loader={vansLoader}
           errorElement={<Error />}
         />
-        <Route path=":id" element={<VanDetail />} />
+        <Route path=":id" element={<VanDetail />} loader={vanDetailLoader} />
       </Route>
 
       <Route path="/host" element={<HostLayout />}>
@@ -63,19 +65,11 @@ const router = createBrowserRouter(
             return null;
           }}
         />
-        <Route
-          path="vans"
-          element={<HostVan />}
-          loader={async () => {
-            return null;
-          }}
-        />
+        <Route path="vans" element={<HostVan />} loader={hostVanLoader} />
         <Route
           path="vans/:id"
           element={<HostVanDetail />}
-          loader={async () => {
-            return null;
-          }}
+          loader={HostVanDetailLoader}
         >
           <Route
             index
