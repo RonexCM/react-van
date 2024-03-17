@@ -48,7 +48,9 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async () => await requireAuth()}
+          loader={async () => {
+            return null;
+          }}
         />
         <Route
           path="income"
